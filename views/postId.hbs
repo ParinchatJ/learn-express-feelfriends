@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{{> baseHead customTitle=customTitle }}
+
+<body>
+    {{> siteHeader}}
+    {{#if onePost}}
+        <div style="background-color: #d6aaaa;">
+            <h2> {{ onePost.title }} </h2>
+            <p>
+                <span> {{ onePost.from }} | </span>
+                <span> {{ onePost.createdAt }} </span>
+            </p>
+            <p>{{ onePost.content }}</p>
+        </div>
+    
+        {{!-- นับ comment --}}
+        {{#if postComments}}
+            {{!-- ให้นับคอมเม้นเป็นความยาว --}}
+            <h4>{{ postComments.length }} comments</h4> 
+        {{else}}
+            <h4>No comment - Lets first!</h4>
+        {{/if}}
+
+        {{!-- แสดง comment ข้างล่างภาพรวม --}}
+        {{#each postComments }}
+            <div style="background-color: lightgray;">
+                <p>
+                    <span>{{ this.from }} | </span>
+                    <span>{{ this.createdAt }}</span>
+                </p>
+                <p>{{ this.content }}</p>
+            </div>
+        {{/each}}
+
+    {{else}}
+        <p>This post is not found</p>
+    {{/if}}
+
+    {{> siteFooter}}
+</body>
+</html>
+
+{{!-- <!DOCTYPE html>
+<html lang="en">
+{{> baseHead customTitle=customTitle }}
+<body>
+  {{> siteHeader }}
+  <section class="section">
+    <div class="container">
+      {{#if onePost}}
+        <div class="box">
+          <h4>{{ onePost.title }}</h4>
+          <p>
+            <b>{{ onePost.from }}</b>
+            <span class="text-gray"> | {{ onePost.createdAtText }}</span>
+          </p>
+          <div>{{ onePost.content }}</div>
+        </div>
+        <hr>
+        <form action="/p/{{ onePost.id }}/comment" method="post">
+          <p>
+            <textarea name="content" placeholder="แสดงความคิดเห็น" rows="3">{{ commentValues.content }}</textarea>
+          </p>
+          <p>
+            <input type="text" name="from" placeholder="จากคุณ" value="{{ commentValues.from }}">
+          </p>
+          <p>
+            <input id="input-accepted" type="checkbox" name="accepted">
+            <label for="input-accepted"> ข้อความยาวๆที่หลายคนเคยเจอ อาจไม่ต้องอ่านก็ได้ แค่ยอมรับและเข้าใจก็พอ</label>
+          </p>
+          <p>
+            <button class="button" type="submit">คอมเม้นท์</button>
+          </p>
+          {{#if errorMessage }}
+            <p>*** {{ errorMessage }}</p>
+          {{/if}}
+        </form>
+        <hr>
+        {{#if postComments}}
+          <h5>{{ postComments.length }} คอมเม้นท์</h5>
+        {{else}}
+          <h5>ยังไม่มีคอมเม้นท์นะ มาเปิดกันได้</h5>
+        {{/if}}
+        {{#each postComments}}
+          <div class="box">
+            <p>
+              <b>{{ this.from }}</b>
+              <span class="text-gray"> | {{ this.createdAtText }}</span>
+            </p>
+            <div>{{ this.content }}</div>
+          </div>
+        {{/each}}
+      {{else}}
+        <p>ไม่พบโพสต์ที่คุณต้องการ</p>
+      {{/if}}
+    </div>
+  </section>
+  {{> siteFooter }}
+  {{> scrollTopButton }}
+  {{> siteScript }}
+</body>
+</html> --}}
