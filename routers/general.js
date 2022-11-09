@@ -2,6 +2,7 @@ const express = require("express");
 const async = require("hbs/lib/async");
 const router = express.Router(); //เรียกใช้ router
 const db = require("../db"); //เรียกใช้ knex
+const dayjs = require('dayjs'); //เรียกใช้ dayjs
 
 router.get("/", async (req, res) => {
   //ให้ app รับ express มาใช้และรับ param 2 ตัวคือ path, method
@@ -17,6 +18,13 @@ router.get("/", async (req, res) => {
       .leftJoin("comment", "post.id", "comment.postId") //ให้ตาราง comment join post โดย field ขื่อ id and postId
       .groupBy("post.id") //เรียงโดย..
       .orderBy("post.id", "desc"); //เรียงโดย.. แบบกลับด้าน
+
+    //format วันที่ในรูปแบบสวยๆ
+    allPosts = allPosts.map(post => {
+      const createdAtText = dayjs(post.createdAt).format('D MMM YYYY - HH:mm');
+      return { ...post, createdAtText };
+    });
+
   } catch (e) {
     console.error(e);
   }
