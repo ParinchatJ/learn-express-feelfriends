@@ -7,7 +7,8 @@ const db = knex.default({
         password: "root",
         host: "127.0.0.1",
         port: 8889,
-        database: "express_feelfriends"
+        database: "express_feelfriends",
+        timezone: "+00:00" // ทำให้เวลาที่ save เป็นไปตามประเทศที่ใช้ (2) อีกอันใน js
     }
 });
 

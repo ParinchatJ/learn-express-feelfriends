@@ -10,6 +10,10 @@ app.use(express.urlencoded({ extended: true })); //set ให้ใช้ middle
 app.set("view engine", "hbs"); //set เพื่อให้้ใช้ hbs ได้
 hbs.registerPartials(__dirname + "/views/partials"); //set ให้ hbs หยิบส่วนประกอบเล็กต่างๆออกมาประกอบเป็นการแสดงหน้าเวป
 
+// ไฟล์ static นำมาแต่งเวปให้สวย
+//สั่งให้ node ทำงานกับ static file และสามารถให้เราอ้างอิง link ได้ (link ของ static file, express.static(ชื่อโฟลเดอร์))
+app.use("/static", express.static('static'));
+
 app.use("/", generalRouter); //ทำ router ให้จัดการระเบียบไฟล์ได้มากขึ้น
 
 app.use("/p", postsRouter);

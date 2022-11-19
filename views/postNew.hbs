@@ -7,8 +7,35 @@
 <body>
     {{> siteHeader}}
     <div>
-        <h1>new post</h1>
+        <h1>New post</h1>
         <p>You can ask anything</p>
+
+        {{!-- make form --}}
+        <form action="/p/new" method="post">
+            <p>
+                <input type="text" name="title" placeholder="title" value="{{ values.title }}">
+            </p>
+            <p>
+                <textarea name="content" placeholder="content"> {{ values.content }}</textarea>
+            </p>
+            <p>
+                <input type="text" name="from" placeholder="from" value="{{ values.from }}">
+            </p>
+
+            {{!-- ทำ checkbox on/off ไว้ทำตอนทำ cookie ได้ไหมนะ? --}}
+            <p>
+                <input id="input-accepted" type="checkbox" name="accepted">
+                <label for="input-accepted">accept me eiei</label>
+            </p>
+            <button type="submit">submit</button>
+
+            <p>
+            {{#if errorMessage}}
+                <p>{{errorMessage}}</p>
+            {{/if}}
+            </p>
+        </form>
+
     </div>
     {{> siteFooter}}
 </body>
