@@ -26,7 +26,6 @@
                 <input type="text" name="from" placeholder="from" value="{{ values.from }}">
             </p>
 
-            {{!-- ทำ checkbox on/off ไว้ทำตอนทำ cookie ได้ไหมนะ? --}}
             <p>
                 <input id="input-accepted" type="checkbox" name="accepted">
                 <label for="input-accepted">accept me eiei</label>
@@ -40,15 +39,13 @@
             </p>
         </form>
         <hr>
-        {{!-- นับ comment --}}
+
         {{#if postComments}}
-            {{!-- ให้นับคอมเม้นเป็นความยาว --}}
             <h4>{{ postComments.length }} comments</h4> 
         {{else}}
             <h4>No comment - Lets first!</h4>
         {{/if}}
 
-        {{!-- แสดง comment ข้างล่างภาพรวม --}}
         {{#each postComments }}
             <div class="onepost">
                 <p>

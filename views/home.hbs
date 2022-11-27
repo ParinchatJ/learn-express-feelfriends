@@ -10,7 +10,6 @@
             <h1>Hello Potip</h1>
             <p>say something..</p>
 
-            {{!-- การดึงข้อมูลมาใช้ใน handlebar  --}}
             {{#each allPosts }}
                 <div class="onepost">
                     <h4><a href="/p/{{ this.id }}">{{ this.title }}</a></h4>
@@ -18,7 +17,7 @@
                         <span>{{ this.from }} |</span>
                         <span>{{ this.createdAtText }}</span>
                     </p>
-                    {{!-- สร้างเงื่อนไขในการแสดง comment --}}
+                    
                     {{#if commentsCount}}
                         <p>{{ commentsCount }} comments</p>
                     {{ else }}
