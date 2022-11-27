@@ -3,3 +3,143 @@
 html {
     font-family: 'Roboto Mono', monospace;
 }
+
+*, ::before, ::after {
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    line-height: 1.4;
+    color: #111111;
+}
+
+p {
+    line-height: 1.6;
+}
+
+a {
+    color: rgba(36, 36, 100, 0.839);
+    text-decoration: none;
+}
+
+hr {
+    border: 1px dashed rgb(149, 149, 149);
+}
+
+.section {
+    padding: 140px 15px 30px 15px;
+}
+
+.container {
+    min-height: 80vh;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.onepost {
+    border: 2px solid black;
+    padding: 0px 30px;
+    margin-bottom: 30px;
+}
+
+.button {
+    border: 2px solid black;
+    padding: 10px 20px;
+    background-color: rgba(221, 182, 54, 0.798);
+}
+
+.button:hover {
+    background-color: black;
+    color: #fff;
+}
+
+/* header */
+
+header {
+    position: fixed;
+    width: 100vw;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-bottom: 2px solid rgb(149, 149, 149);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 110px;
+}
+
+header .header-left a {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+header .header-left a img {
+    height: 90px;
+    padding-right: 20px;
+}
+
+header .header-right a {
+    font-weight: 700;
+    font-size: 16px;
+    color: white;
+    padding: 10px;
+    border: 2px solid rgb(149, 149, 149);
+    background-color: #111111;
+}
+
+/* footer */
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    border-top: 2px solid rgb(149, 149, 149);
+    height: 6rem;
+}
+
+footer .pic-bottom {
+    padding-top: 30px;
+}
+
+footer .bottomtext a p {
+    color: #111111;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+
+/* form */
+
+input[type='text'],
+textarea {
+  appearance: none;
+  border: 2px solid #111111;
+  outline: none;
+  display: block;
+  width: 100%;
+  padding: 8px;
+}
+
+input[type='text'] {
+  height: 35px;
+}
+
+input[type='text']:focus,
+textarea:focus {
+  border: 2px solid goldenrod;
+}
+
+.errormessage {
+    color: red;
+}
+

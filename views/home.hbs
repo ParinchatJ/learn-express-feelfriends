@@ -5,27 +5,29 @@
 
 <body>
     {{> siteHeader}}
-    <div>
-        <h1>Hello FeelFriends</h1>
-        <p>say something..</p>
+    <section class="section">
+        <div class="container">
+            <h1>Hello FeelFriends</h1>
+            <p>say something..</p>
 
-        {{!-- การดึงข้อมูลมาใช้ใน handlebar  --}}
-        {{#each allPosts }}
-            <div style="background-color: rgb(194, 150, 150);">
-                <h4><a href="/p/{{ this.id }}">{{ this.title }}</a></h4>
-                <p>
-                    <span>{{ this.from }} |</span>
-                    <span>{{ this.createdAtText }}</span>
-                </p>
-                {{!-- สร้างเงื่อนไขในการแสดง comment --}}
-                {{#if commentsCount}}
-                    <p>{{ commentsCount }} comments</p>
-                {{ else }}
-                    <p>No comment - let's first!</p>
-                {{/if}}
-            </div>
-        {{/each}}
-    </div>
+            {{!-- การดึงข้อมูลมาใช้ใน handlebar  --}}
+            {{#each allPosts }}
+                <div class="onepost">
+                    <h4><a href="/p/{{ this.id }}">{{ this.title }}</a></h4>
+                    <p>
+                        <span>{{ this.from }} |</span>
+                        <span>{{ this.createdAtText }}</span>
+                    </p>
+                    {{!-- สร้างเงื่อนไขในการแสดง comment --}}
+                    {{#if commentsCount}}
+                        <p>{{ commentsCount }} comments</p>
+                    {{ else }}
+                        <p>No comment - let's first!</p>
+                    {{/if}}
+                </div>
+            {{/each}}
+        </div>
+    </section>
     {{> siteFooter}}
 </body>
 </html>
